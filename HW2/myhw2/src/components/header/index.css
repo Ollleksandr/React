@@ -1,0 +1,25 @@
+ul {
+  list-style: none;
+}
+.list {
+  width: 777px;
+  height: 55px;
+  margin-bottom: 3px;
+  background-color: rgb(218, 101, 101);
+  font-size: 33px;
+  font-weight: bold;
+}
+.deleteButton {
+  float: right;
+  width: 99px;
+  height: 55px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.radio {
+  width: 33px;
+  height: 33px;
+  margin-top: 11px;
+  margin-right: 11px;
+  float: left;
+}
