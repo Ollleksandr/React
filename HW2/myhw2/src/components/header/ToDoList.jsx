@@ -30,16 +30,42 @@ export default class ToDoList extends Component {
       },
     ],
   }
+  constructor() {
+    super()
+    this.onDeleteClick = this.onDeleteClick.bind(this)
+    this.onDoneClick = this.onDoneClick.bind(this)
+    this.getCompleteStyle = this.getCompleteStyle(this)
+  }
   render() {
     return (
       <>
         <h1 style={{ marginLeft: "-1000px" }}>My ToDo list</h1>
         <ul>
           {this.state.todos.map((todo) => (
-            <ToDoItem key={todo.id} title={todo.title} compl={todo.completed} />
+            <ToDoItem
+              key={todo.id}
+              item={todo}
+              onDeleteClick={this.onDeleteClick}
+              onDoneClick={this.onDoneClick}
+              getCompleteStyle={this.getCompleteStyle}
+            />
           ))}
         </ul>
       </>
     )
+  }
+  onDeleteClick(id) {
+    const newTodos = this.state.todos.filter((todo) => todo.id !== id)
+    this.setState({ todos: newTodos })
+  }
+  onDoneClick(id) {
+    const item = this.state.todos.find((todo) => todo.id === id)
+    const newItem = { ...item, completed: !item.completed }
+    this.setState({
+      todos: this.state.todos.map((item) => (item.id === id ? newItem : item)),
+    })
+  }
+  getCompleteStyle(completed) {
+    return this.state.completed ? "green" : "red"
   }
 }
