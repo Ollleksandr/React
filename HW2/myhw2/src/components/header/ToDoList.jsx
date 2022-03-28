@@ -1,5 +1,5 @@
-import { Component } from "react"
-import ToDoItem from "./ToDoItem"
+import { Component } from "react";
+import ToDoItem from "./ToDoItem";
 export default class ToDoList extends Component {
   state = {
     todos: [
@@ -29,12 +29,12 @@ export default class ToDoList extends Component {
         completed: false,
       },
     ],
-  }
+  };
   constructor() {
-    super()
-    this.onDeleteClick = this.onDeleteClick.bind(this)
-    this.onDoneClick = this.onDoneClick.bind(this)
-    this.getCompleteStyle = this.getCompleteStyle(this)
+    super();
+    this.onDeleteClick = this.onDeleteClick.bind(this);
+    this.onDoneClick = this.onDoneClick.bind(this);
+    this.getCompleteStyle = this.getCompleteStyle(this);
   }
   render() {
     return (
@@ -52,20 +52,20 @@ export default class ToDoList extends Component {
           ))}
         </ul>
       </>
-    )
+    );
   }
   onDeleteClick(id) {
-    const newTodos = this.state.todos.filter((todo) => todo.id !== id)
-    this.setState({ todos: newTodos })
+    const newTodos = this.state.todos.filter((todo) => todo.id !== id);
+    this.setState({ todos: newTodos });
   }
   onDoneClick(id) {
-    const item = this.state.todos.find((todo) => todo.id === id)
-    const newItem = { ...item, completed: !item.completed }
+    const item = this.state.todos.find((todo) => todo.id === id);
+    const newItem = { ...item, completed: !item.completed };
     this.setState({
       todos: this.state.todos.map((item) => (item.id === id ? newItem : item)),
-    })
+    });
   }
   getCompleteStyle(completed) {
-    return this.state.completed ? "green" : "red"
+    return this.state.completed ? "green" : "red";
   }
 }

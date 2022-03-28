@@ -20,3 +20,31 @@ td {
 .delete:hover {
   background: red;
 }
+.add {
+  height: 95px;
+  width: 95px;
+  border-radius: 25px;
+  font-size: 33px;
+  font-weight: bold;
+}
+.add:hover {
+  background: greenyellow;
+}
+#two {
+  display: none;
+}
+.EnterFieldHolder {
+  list-style-type: none;
+}
+.enterField {
+  width: 577px;
+  height: 71px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  font-size: 21px;
+}
+.FormBtn {
+  width: 162px;
+  height: 41px;
+  font-size: 21px;
+}

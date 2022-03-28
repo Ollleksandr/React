@@ -1,9 +1,9 @@
-import { Component } from "react"
-import "./index.css"
+import { Component } from "react";
+import "./index.css";
 export default class ToDoItem extends Component {
   render() {
-    const { item } = this.props
-    const { completed, id, title } = item
+    const { item } = this.props;
+    const { completed, id, title } = item;
     return (
       <>
         <li
@@ -27,9 +27,9 @@ export default class ToDoItem extends Component {
           </button>
         </li>
       </>
-    )
+    );
   }
 }
 function getCompleteStyle(completed) {
-  return completed && "green"
+  return completed && "green";
 }
