@@ -1,0 +1,25 @@
+.itemWrapper {
+  float: left;
+  width: 299px;
+  height: 299px;
+  border: 3px solid yellow;
+  border-radius: 25px;
+  margin-right: 33px;
+}
+.item {
+  width: 299px;
+  height: 255px;
+}
+p {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.buttonContainer {
+  text-align: center;
+}
+button {
+  bottom: 15px;
+  width: 77px;
+  height: 25px;
+}
