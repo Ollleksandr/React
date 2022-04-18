@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function StickerMethods() {
     const [objState, setObjState] = useState([]);
@@ -10,6 +10,33 @@ export default function StickerMethods() {
             .then((res) => res.json())
             .then((data) => setObjState(data));
     }, []);
+
+    //  function useAsync(cb, defaultValue = []) {
+    //     const [status, setStatus] = useState("IDLE");
+    //     const [data, setData] = useState(defaultValue);
+
+    //     function run() {
+    //       setStatus("LOADING");
+
+    //       cb()
+    //         .then((data) => {
+    //           setStatus("DONE");
+    //           setData(data);
+    //           return data;
+    //         })
+    //         .catch((error) => {
+    //           setStatus("ERROR");
+    //           return Promise.reject(error);
+    //         });
+    //     }
+
+    //     return {
+    //       status,
+    //       data,
+    //       setData,
+    //       run,
+    //     };
+    //   }
 
     function onAddButtonClick() {
         const newSticker = {
@@ -26,13 +53,16 @@ export default function StickerMethods() {
             });
     }
 
-    function onDeleteButtonClick(id) {
-        fetch(URL + "/" + id, {
-            method: "DELETE",
-        }).then((res) => res.json());
-        const newObjState = objState.filter((objState) => objState.id !== id);
-        setObjState(newObjState);
-    }
+    const onDeleteButtonClick = useCallback(
+        (id) => {
+            fetch(URL + "/" + id, {
+                method: "DELETE",
+            }).then((res) => res.json());
+            const newObjState = objState.filter((objState) => objState.id !== id);
+            setObjState(newObjState);
+        },
+        [objState]
+    );
 
     function updateSticker(list) {
         const id = list.id;
@@ -53,9 +83,9 @@ export default function StickerMethods() {
 
     return {
         objState,
-        // setObjState,
         onAddButtonClick,
         onDeleteButtonClick,
         updateSticker,
+        // useAsync,
     };
 }

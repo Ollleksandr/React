@@ -15,17 +15,14 @@ export default function Item({
   }
 
   return (
-    <div  className="itemWrapper" key={key}>
+    <div className="itemWrapper">
       <div className="item">
         <textarea
-          
           name="description"
           onChange={onValueChange}
           onBlur={() => updateSticker({ id, description })}
           value={description}
-        >
-          {/* {description} */}
-        </textarea>
+        ></textarea>
       </div>
       <div className="buttonContainer">
         <button onClick={() => onDeleteButtonClick(list.id)}>Delete</button>
