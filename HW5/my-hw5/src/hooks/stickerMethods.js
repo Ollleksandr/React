@@ -27,28 +27,33 @@ export default function StickerMethods() {
     }
 
     function onDeleteButtonClick(id) {
-        fetch(URL + id, {
+        fetch(URL + "/" + id, {
             method: "DELETE",
         }).then((res) => res.json());
         const newObjState = objState.filter((objState) => objState.id !== id);
         setObjState(newObjState);
     }
 
-    function updateSticker(id, objState) {
-        console.log(id);
+    function updateSticker(list) {
+        const id = list.id;
+        const description = list.description;
 
         fetch(URL + "/" + id, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(id, objState),
-        })
-            .then((res) => res.json())
-            .then(({ data }) => setObjState((objState) => objState.map((objState) => (id === id ? data : objState))));
+            body: JSON.stringify({ id, description }),
+        }).then((res) =>
+            res
+                .json()
+                .then((data) =>
+                    setObjState((objState) => objState.map((objState) => (objState.id === id ? data : objState)))
+                )
+        );
     }
 
     return {
         objState,
-        setObjState,
+        // setObjState,
         onAddButtonClick,
         onDeleteButtonClick,
         updateSticker,

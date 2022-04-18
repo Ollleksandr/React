@@ -3,8 +3,8 @@ import { useState } from "react"
 
 export default function Item({
   key,
+  id,
   list,
-  onSave,
   onDeleteButtonClick,
   updateSticker,
 }) {
@@ -15,15 +15,16 @@ export default function Item({
   }
 
   return (
-    <div key={list.id} className="itemWrapper">
+    <div  className="itemWrapper" key={key}>
       <div className="item">
         <textarea
-          name="desctiption"
-          // defaultValue=""
+          
+          name="description"
           onChange={onValueChange}
-          onBlur={() => updateSticker(list.id, list)}
+          onBlur={() => updateSticker({ id, description })}
+          value={description}
         >
-          {description}
+          {/* {description} */}
         </textarea>
       </div>
       <div className="buttonContainer">

@@ -7,14 +7,13 @@ export default function ItemWrapper({
 }) {
   return objState.map((list) => {
     return (
-      <>
-        <Item
-          key={list.id}
-          list={list}
-          onDeleteButtonClick={onDeleteButtonClick}
-          updateSticker={updateSticker}
-        />
-      </>
+      <Item
+        key={list.id}
+        id={list.id}
+        list={list}
+        onDeleteButtonClick={onDeleteButtonClick}
+        updateSticker={updateSticker}
+      />
     )
   })
 }
