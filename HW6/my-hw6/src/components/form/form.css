@@ -1,0 +1,18 @@
+ul {
+  list-style-type: none;
+}
+input {
+  width: 577px;
+  height: 71px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  font-size: 21px;
+}
+button {
+  width: 162px;
+  height: 41px;
+  font-size: 21px;
+}
+.container {
+  text-align: center;
+}

@@ -1,0 +1,10 @@
+.delete {
+  height: 95px;
+  width: 95px;
+  border-radius: 25px;
+  font-size: 33px;
+  font-weight: bold;
+}
+.delete:hover {
+  background: red;
+}
