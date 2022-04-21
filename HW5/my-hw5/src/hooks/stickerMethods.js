@@ -10,33 +10,36 @@ export default function StickerMethods() {
             .then((res) => res.json())
             .then((data) => setObjState(data));
     }, []);
+    // function getObjState() {
+    //     fetch(URL).then((res) => res.json());
+    // }
 
-    //  function useAsync(cb, defaultValue = []) {
-    //     const [status, setStatus] = useState("IDLE");
-    //     const [data, setData] = useState(defaultValue);
+    function useAsync(cb, defaultValue = []) {
+        const [status, setStatus] = useState("IDLE");
+        const [data, setData] = useState(defaultValue);
 
-    //     function run() {
-    //       setStatus("LOADING");
+        function run() {
+            setStatus("LOADING");
 
-    //       cb()
-    //         .then((data) => {
-    //           setStatus("DONE");
-    //           setData(data);
-    //           return data;
-    //         })
-    //         .catch((error) => {
-    //           setStatus("ERROR");
-    //           return Promise.reject(error);
-    //         });
-    //     }
+            cb()
+                .then((data) => {
+                    setStatus("DONE");
+                    setData(data);
+                    return data;
+                })
+                .catch((error) => {
+                    setStatus("ERROR");
+                    return Promise.reject(error);
+                });
+        }
 
-    //     return {
-    //       status,
-    //       data,
-    //       setData,
-    //       run,
-    //     };
-    //   }
+        return {
+            status,
+            data,
+            setData,
+            run,
+        };
+    }
 
     function onAddButtonClick() {
         const newSticker = {
@@ -58,6 +61,7 @@ export default function StickerMethods() {
             fetch(URL + "/" + id, {
                 method: "DELETE",
             }).then((res) => res.json());
+
             const newObjState = objState.filter((objState) => objState.id !== id);
             setObjState(newObjState);
         },
@@ -83,9 +87,10 @@ export default function StickerMethods() {
 
     return {
         objState,
+        // getObjState,
         onAddButtonClick,
         onDeleteButtonClick,
         updateSticker,
-        // useAsync,
+        useAsync,
     };
 }

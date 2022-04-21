@@ -1,14 +1,9 @@
 import "./Item.css"
 import { useState } from "react"
 
-export default function Item({
-  key,
-  id,
-  list,
-  onDeleteButtonClick,
-  updateSticker,
-}) {
+export default function Item({ id, list, onDeleteButtonClick, updateSticker }) {
   const [description, setDescription] = useState(list.description)
+  // const key = list.id
 
   function onValueChange(e) {
     setDescription(e.target.value)

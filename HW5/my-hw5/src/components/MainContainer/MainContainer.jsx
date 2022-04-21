@@ -1,10 +1,25 @@
 import ItemWrapper from "../ItemWrapper/ItemWrapper.jsx"
 import "./MainContainer.css"
 import StickerMethods from "../../hooks/stickerMethods.js"
+// import useAsync from "../../hooks/stickerMethods"
+// import { useState, useEffect } from "react"
 
 export default function MainContainer() {
-  const { objState, onAddButtonClick, onDeleteButtonClick, updateSticker } =
-    StickerMethods()
+  const {
+    // getObjState,
+    objState,
+    onAddButtonClick,
+    onDeleteButtonClick,
+    updateSticker,
+    // useAsync,
+  } = StickerMethods()
+  // const {
+  //   run,
+  //   data: objState,
+  //   setData: setObjState,
+  //   status,
+  // } = useAsync(getObjState, [])
+  // useEffect(() => run(), [])
 
   return (
     <>
