@@ -1,0 +1,16 @@
+header {
+  overflow: hidden;
+  background-color: rgba(35, 34, 34, 0.897);
+  height: 99px;
+}
+li {
+  list-style-type: none;
+  float: right;
+  margin-right: 13px;
+  font-size: 33px;
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
